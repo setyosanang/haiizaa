@@ -1,0 +1,18 @@
+/* ===========================================================
+   THEME — Paper. Nuansa surat kertas lama, hangat & tenang.
+=========================================================== */
+:root{
+    --bg:#F3ECE0;
+    --card:#FBF7EF;
+    --primary:#D9BE93;
+    --primary-dark:#A9824C;
+    --cream:#EFE2C8;
+    --mint:#DCE3D2;
+    --text:#3B2F26;
+    --text-secondary:#6E5C4C;
+    --title-accent:#A9824C;
+    --border:#E4D8C3;
+    --radius:14px;
+    --card-shadow:0 14px 34px rgba(60,40,20,.12);
+    --bg-layer-default:linear-gradient(160deg,#F6EFE2 0%,#EFE4D0 100%);
+}

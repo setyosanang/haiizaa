@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk - Buat Iza</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+</head>
+<body>
+
+    <header class="app-header">
+        <div>
+            <div class="title">Buat Iza</div>
+            <div class="subtitle">Login duluuu.</div>
+        </div>
+    </header>
+
+    <div class="login-shell">
+        <form class="login-card" id="login-form">
+            <h2>Halo, Zaa</h2>
+            <p>Login dulu yaa?</p>
+            <p>Username diisi: iza</p>
+            <p>Nah Passwordnya: punya iza</p>
+            <p>Hurufnya kecil semua yaa...</p>
+
+            <div class="field">
+            <label for="username">Username</label>
+            <input type="text" id="username" required autocomplete="username">
+            </div>
+            <div class="field">
+                <label for="password">Kata Sandi</label>
+                <input type="password" id="password" required autocomplete="current-password">
+            </div>
+
+            <button type="submit" class="btn" id="btn-submit">Masuk</button>
+            <p class="error-text" id="error-text"></p>
+        </form>
+    </div>
+
+    <footer class="app-footer">
+        <p>Interactive Story Engine.</p>
+    </footer>
+
+    <script type="module">
+        import { loadConfig } from './assets/js/config-loader.js';
+        import { login, getSession } from './assets/js/admin.js';
+
+        await loadConfig();
+
+        const form = document.getElementById('login-form');
+        const errorText = document.getElementById('error-text');
+        const btn = document.getElementById('btn-submit');
+
+        getSession().then((session) => {
+            if (session) window.location.href = 'index.html';
+        }).catch(() => {});
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorText.textContent = '';
+            btn.disabled = true;
+            btn.textContent = 'Memeriksa…';
+            try {
+                await login(
+                 document.getElementById('username').value,
+                 document.getElementById('password').value
+            );
+                window.location.href = 'index.html';
+            } catch (err) {
+                errorText.textContent = err.message || 'Login gagal.';
+                btn.disabled = false;
+                btn.textContent = 'Masuk';
+            }
+        });
+    </script>
+</body>
+</html>

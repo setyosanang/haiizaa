@@ -1,0 +1,73 @@
+/* ===========================================================
+   ANIMATION — 5 paket (A-E) dipilih otomatis oleh animation.js
+   berdasarkan urutan node. Semua easing lembut, tidak ada
+   animasi "ala PowerPoint".
+=========================================================== */
+
+.doodle{ animation:doodle-float 6s ease-in-out infinite; }
+@keyframes doodle-float{
+    0%,100%{ transform:translateY(0) rotate(0deg); }
+    50%{ transform:translateY(-10px) rotate(4deg); }
+}
+
+.card-doodle{ animation:card-doodle-float 8s ease-in-out infinite; }
+.card-doodle.slot-b{ animation-delay:.6s; }
+.card-doodle.slot-c{ animation-delay:1.2s; }
+.card-doodle.slot-d{ animation-delay:1.8s; }
+@keyframes card-doodle-float{
+    0%,100%{ transform:translateY(0) rotate(0deg); }
+    50%{ transform:translateY(-6px) rotate(-3deg); }
+}
+@keyframes card-doodle-float-b{
+    0%,100%{ transform:rotate(-18deg) translateY(0); }
+    50%{ transform:rotate(-18deg) translateY(6px); }
+}
+.card-doodle.slot-b{ animation-name:card-doodle-float-b; }
+
+@keyframes bg-drift{
+    from{ transform:translate(0,0) scale(1); }
+    to{ transform:translate(-2%,2%) scale(1.04); }
+}
+
+/* ---------- shared base keyframes ---------- */
+@keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
+@keyframes slideUp{ from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);} }
+@keyframes dropIn{ from{opacity:0; transform:translateY(-22px);} to{opacity:1; transform:translateY(0);} }
+@keyframes scaleIn{ from{opacity:0; transform:scale(.94);} to{opacity:1; transform:scale(1);} }
+@keyframes zoomSmall{ from{transform:scale(1.05);} to{transform:scale(1);} }
+@keyframes blurIn{ from{opacity:0; filter:blur(6px);} to{opacity:1; filter:blur(0);} }
+@keyframes bounceIn{ 0%{opacity:0; transform:scale(.5);} 70%{opacity:1; transform:scale(1.08);} 100%{transform:scale(1);} }
+@keyframes softGlow{ 0%,100%{ filter:drop-shadow(0 0 0 rgba(255,255,255,0)); } 50%{ filter:drop-shadow(0 0 14px var(--primary)); } }
+@keyframes revealWidth{ from{ clip-path:inset(0 100% 0 0); } to{ clip-path:inset(0 0 0 0); } }
+@keyframes slideSide{ from{opacity:0; transform:translateX(-16px);} to{opacity:1; transform:translateX(0);} }
+
+/* ---------- Paket A: fade lembut + slide-up ---------- */
+.pkg-a .story-title{ animation:slideUp .6s ease both; }
+.pkg-a .story-subtitle{ animation:fadeIn .6s ease .1s both; }
+.pkg-a .story-desc{ animation:fadeIn .7s ease .2s both; }
+.pkg-a .story-image{ animation:zoomSmall .8s ease both; }
+.pkg-a .doodle{ animation:doodle-float 6s ease-in-out infinite, fadeIn .8s ease both; }
+
+/* ---------- Paket B: judul jatuh ---------- */
+.pkg-b .story-title{ animation:dropIn .55s cubic-bezier(.34,1.4,.64,1) both; }
+.pkg-b .story-subtitle{ animation:fadeIn .5s ease .15s both; }
+.pkg-b .story-desc{ animation:fadeIn .6s ease .25s both; }
+.pkg-b .doodle{ animation:doodle-float 6s ease-in-out infinite, fadeIn .9s ease .3s both; }
+
+/* ---------- Paket C: blur + scale ---------- */
+.pkg-c .story-card{ animation:fadeIn .5s ease both; }
+.pkg-c .story-title{ animation:scaleIn .55s ease both; }
+.pkg-c .story-desc{ animation:blurIn .8s ease .15s both; }
+.pkg-c .story-image{ animation:zoomSmall .9s ease both; }
+
+/* ---------- Paket D: blob + bounce + glow ---------- */
+.pkg-d .doodle{ animation:bounceIn .5s cubic-bezier(.34,1.6,.64,1) both, softGlow 3s ease-in-out 1s infinite; }
+.pkg-d .story-title{ animation:fadeIn .6s ease .1s both; }
+.pkg-d .story-subtitle{ animation:fadeIn .6s ease .2s both; }
+.pkg-d .story-desc{ animation:fadeIn .6s ease .3s both; }
+
+/* ---------- Paket E: slide + reveal ---------- */
+.pkg-e .story-title{ animation:revealWidth .9s ease both; white-space:normal; }
+.pkg-e .story-subtitle{ animation:fadeIn .5s ease .3s both; }
+.pkg-e .story-desc{ animation:slideSide .6s ease .35s both; }
+.pkg-e .story-image{ animation:fadeIn .8s ease both; }

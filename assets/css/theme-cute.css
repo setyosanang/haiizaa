@@ -1,0 +1,18 @@
+/* ===========================================================
+   THEME — Cute (default). Palet lembut pink-cream.
+=========================================================== */
+:root{
+    --bg:#FFF4F7;
+    --card:#FDF1E4;
+    --primary:#F7B7C8;
+    --primary-dark:#E98DA7;
+    --cream:#F7E9DE;
+    --mint:#DDF2E3;
+    --text:#5B4750;
+    --text-secondary:#8B7680;
+    --title-accent:#C97A93;
+    --border:#F3D9E0;
+    --radius:26px;
+    --card-shadow:0 18px 40px rgba(233,141,167,.16);
+    --bg-layer-default:radial-gradient(circle at 30% 20%,#FFE6ED 0%,#FFF4F7 60%);
+}

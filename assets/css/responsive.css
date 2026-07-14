@@ -1,0 +1,18 @@
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media(max-width:480px){
+    .app-header{ padding:.9rem 1rem; }
+    main{ padding:1rem; gap:1rem; }
+    .story-card{ padding:1.5rem 1.25rem; min-height:52vh; }
+    .story-image{ max-height:170px; }
+    .writer-bar{ font-size:.66rem; padding:.45rem .7rem; }
+    .doodle{ width:58px; height:58px; }
+    .music-player{ padding:.6rem .75rem; }
+}
+
+@media(min-width:900px){
+    main{ max-width:720px; }
+    .story-card{ padding:3.2rem; }
+}

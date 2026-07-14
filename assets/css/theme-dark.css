@@ -1,0 +1,18 @@
+/* ===========================================================
+   THEME — Dark. Malam lembut, bukan gelap keras.
+=========================================================== */
+:root{
+    --bg:#241B30;
+    --card:#2F2440;
+    --primary:#F0AFC4;
+    --primary-dark:#D98BA6;
+    --cream:#3A2E4C;
+    --mint:#2C3B3A;
+    --text:#F3E8EE;
+    --text-secondary:#C9B8CB;
+    --title-accent:#F0AFC4;
+    --border:#3E3153;
+    --radius:26px;
+    --card-shadow:0 18px 44px rgba(0,0,0,.35);
+    --bg-layer-default:radial-gradient(circle at 70% 20%,#3A2C50 0%,#241B30 60%);
+}

@@ -1,0 +1,71 @@
+{
+  "_petunjuk": "Workflow hanya berisi ISI CERITA: id, title, subtitle, description, image, musik (opsional). Tidak ada status, warna, animasi, atau SVG di sini — semuanya dipilih otomatis oleh engine berdasarkan urutan node. 'musik' cukup diisi KUNCI dari 'music_library' di config.json (misal \"musik\": \"contoh\"), bukan path file. Ganti teks PLACEHOLDER, tambah/hapus node sesuka hati; urutan array menentukan urutan halaman.",
+  "nodes": [
+        { 
+      "id": 1,  
+      "title": "Tok... Tok... Tok...",
+      "subtitle": "", 
+      "description": "\n\nTok... Tok... Tok...\n\nADAA SURATT ZAA.\n\n <a href='login.html' target='_blank' rel='noopener noreferrer'>login duluu pliss</a> \n\n oke kalo udah login, lanjutt>", 
+      "image": "data/images/illustration/01.jpg", 
+      "musik": "" 
+    },
+    { 
+      "id": 2,  
+      "title": "Haii Sayangg",
+      "subtitle": "", 
+      "description": "Sayangg, kamu lagi apaa? Semoga enggak lagi sibuk yaa. Akuu iseng ajaa bikin inii. Yaa meskipun masih kaya ppt doang, tapii pliss stay duluu di sini yaa.\n\nAku masih ingett kamu pernah bilang suka lagu yang Kepada Noor ituu, jadi akuu setelin di halaman pertama.\n\nbtw, lucu gak...?", 
+      "image": "data/images/illustration/01.jpg", 
+      "musik": "contoh" 
+    },
+    
+    { 
+      "id": 3,  
+      "title": "Bot Telegram",
+      "subtitle": "", 
+      "description": "Kita ketemunya tuh kayak agak absurd ya, coba aja kalo mama tanya, \"kalian ketemunya di mana?\" Terus aku jawab, \"Dari bot Telegram\" \n\nBot telegram itu kafe mana? Atau tempat apa? Deket kampus kah?\n\nPasti beliau bertanya tanya dan ujungnya ngoceh deh, emang ya anak jaman sekarang ada-ada aja!\n\nAku gak ngerencanain mau gimana ke depannya sama iza pas awal ketemu di bot. Aku juga gak berharap banyak. Yang aku rasa ya nyaman, ngerasa aman dan ya... aku sayang aja sama izaa. Yaa boleh kan?", 
+      "image": "data/images/illustration/01.jpg", 
+      "musik": "Sorai" 
+    },
+    { 
+      "id": 3,  
+      "title": "Ada Yang Minta Nomor WA",
+      "subtitle": "", 
+      "description": "Yaa pada akhirnya percakapan kita pindah ke wa HAHA. Modusku agak lucu sih, tapi kan izanya juga mau, wle. Gak tau tuh kenapa bisa mau. \n\nAku bilangnya apa ya waktu itu? Iza inget gak? \n\nTerus kita mulai cerita-cerita lebih intens, saling ngeluh tentang keseharian. \n\nEh, kita juga saling nyemangatin gak sihh, kamu yang greget sama anak-anakmu itu, aku yang ngoceh mulu perkara pilkahim. Kamu yang tugasnya numpuk numpuk segunung dan aku yang kebanyakan nongkrong sama rapat, huft... \n\nAku yang paling terlalu mikirin diri sendiri. \n\nAku sadar selama ini kurang ngedukung iza. Tapi jujur, aku sayaaaangg banget banget banget kok sama iza. Aku... cuma belum tau sepenuhnya, gimana iza ingin dicintai.", 
+      "image": "data/images/illustration/01.jpg", 
+      "musik": "Tenang" 
+    },
+    { 
+      "id": 4,  
+      "title": "Gimana Kuliahmu?",
+      "subtitle": "", 
+      "description": "Aku mah ya sekali denger kata 'UGM' udah kebayang kampusnya orang-orang pinter. Eh gak disangka ceweku sekarang anak UGM. Beruntung deh pacaran sama anak pinter. Huft, u ge em.. u ge em...\n\nAku juga akhirnya tau ternyata tugas-tugas di sana tuh banyak-banyak ya. Untung aku PNC\n\nEHH, ENGGAK LAH AKU JUGA PENGEN U GE EMM. \n\nMeskipun kasta kampus kita berbeda. Tapi ya ada lah beberapa hal, mungkin, yang sama dari perkuliahan kita. \n\nYap, sibuk dan nambah sibuk. Komunikasi kita... berkurang tiap harinya. Jam, menit, detik, hari-hari terasanya sekedar tegur sapa. Kisah-kisah lucu, bahagia, sedikit demi sedikit gak ada lagi. Direnggut deh sama jam-jam karir. Sialan. \n\nAh.. gak apa apa, semua orang yang punya relationship pernah ngerasain fase begini kokk. Kamu bener, cuma butuh waktu.", 
+      "image": "data/images/illustration/01.jpg", 
+      "musik": "Evaluasi" 
+    },
+        { 
+      "id": 5,  
+      "title": "Long Distance Relationship",
+      "subtitle": "", 
+      "description": "Ekhem... Long Distance Relationship, ini sebenernya kalimat yang ngeri juga buat aku, gak cuma iza. Tenang, aku ngerasain hal yang sama. \n\n LDR emang hubungan yang dipengaruhi banget sama attachment (kelekatan emosional). Siklus bertemu dan gak ketemu berulang-ulang memunculkan kebutuhan emosional yang tinggi, berbeda dibanding hubungan yang umum. Itu katanya si M. Carole Pistole dari Purdue University.\n\n tapi... \n\n Kata Lisa M. Diamond, LDR gak selalu membuat hubungan menjadi lebih buruk, kok. Ya... Lisa juga gak menyangkal sih, emang, kedekatan emosional masih bisa dipertahankan melalui komunikasi, kaya yang aku minta ke iza terus-terusan, tetapi tubuh manusia tetap membutuhkan kehadiran fisik dalam kecukupan tertentu.\n\njadi, kapan ya kita ketemu...", 
+      "image": "data/images/illustration/01.jpg", 
+      "musik": "Mudahan" 
+    },
+        { 
+      "id": 6,  
+      "title": "Maaf",
+      "subtitle": "", 
+      "description": "Aku...\n\nAku...\n\nAku minta maaf... \n\nHiks... \n\nNggak tau, aku udah berapa kali buat minta maaf. Aku takut kamu muak sama kata-kata maaf yang aku sampein... Aku yang ngajak Iza sejauh ini, Aku minta maaf sampe sekarang masih banyak harapan-harapan iza yang aku kecewain. Demi apapun, aku bersyukur, kenal dan deket sama seorang nahiza. Aku nggak mau, ke depannya aku cuma ngasih harapan sia-sia. \n\nAku mau manfaatin kesempatan-kesempatan yang masih ada. Kasih aku waktu lagi ya, sayang, buat coba wujudin harapan-harapan kita\n\nsayaangg izaaa<3", 
+      "image": "data/images/illustration/01.jpg", 
+      "musik": "Kekal" 
+    },
+    
+    { "id": 7, 
+      "title": "Yahh.. Suratnya udah habis...", 
+      "subtitle": "", 
+      "description": "Sayaangg suratnya udah habis tauuu. Kalau udah selesai baca, <a href='https://wa.me/6285179525398?text=Sayanggg,%20udah%20aku%20bacaaaa.' target='_blank' rel='noopener noreferrer'>klik di sini yaa,</a> buat balik ke chat kitaaa.", 
+      "image": "data/images/illustration/10.jpg", 
+      "musik": "Themilo" 
+      
+    }
+  ]
+}

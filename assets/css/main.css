@@ -1,0 +1,507 @@
+/* ===========================================================
+   MAIN — layout & struktur. Warna TIDAK didefinisikan di sini;
+   semua warna datang dari theme-*.css lewat CSS custom properties.
+=========================================================== */
+
+:root{
+    /* fallback sebelum theme-*.css termuat — dioverride otomatis */
+    --bg:#FFF4F7; --card:#FDF1E4; --primary:#F7B7C8; --primary-dark:#E98DA7;
+    --cream:#F7E9DE; --mint:#DDF2E3; --text:#5B4750; --text-secondary:#8B7680;
+    --title-accent:#C97A93;
+    --border:#F3D9E0; --radius:26px; --card-shadow:0 18px 40px rgba(233,141,167,.16);
+    --bg-layer-default:radial-gradient(circle at 30% 20%,#FFE6ED 0%,#FFF4F7 60%);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+    font-family:var(--font-body,'Quicksand',sans-serif);
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    overflow-x:hidden;
+    transition:background var(--transition-speed,650ms) ease, color var(--transition-speed,650ms) ease;
+}
+
+body[hidden]{ display:none; }
+
+::-webkit-scrollbar{ width:8px; }
+::-webkit-scrollbar-track{ background:transparent; }
+::-webkit-scrollbar-thumb{ background:var(--primary-dark); border-radius:999px; }
+
+/* ===========================
+   HEADER
+=========================== */
+
+.app-header{
+    padding:1.1rem 1.5rem;
+    display:flex;
+    align-items:center;
+    gap:.75rem;
+    position:relative;
+    z-index:5;
+}
+
+.app-header .title{
+    font-family:var(--font-display,'Fredoka',sans-serif);
+    font-weight:600;
+    font-size:1.05rem;
+    color:var(--title-accent);
+}
+
+.app-header .subtitle{
+    font-size:.72rem;
+    color:var(--text-secondary);
+    letter-spacing:.04em;
+}
+
+.writer-badge{
+    margin-left:auto;
+    font-size:.68rem;
+    padding:.3rem .65rem;
+    border-radius:999px;
+    background:var(--primary);
+    color:#fff;
+    font-weight:600;
+    letter-spacing:.03em;
+}
+
+.music-toggle{
+    margin-left:auto;
+    width:34px; height:34px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text-secondary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:.9rem;
+}
+
+/* ===========================
+   BACKGROUND LAYER — dikendalikan background.js, bergerak pelan
+=========================== */
+
+.bg-layer{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    transition:background var(--transition-speed,650ms) ease;
+}
+
+.bg-layer::before{
+    content:'';
+    position:absolute;
+    inset:-10%;
+    background:inherit;
+    filter:blur(0);
+    animation:bg-drift 26s ease-in-out infinite alternate;
+}
+
+/* ===========================
+   DOODLE LAYER — SVG dekoratif, mengambang halus
+=========================== */
+
+.doodle-layer{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.doodle{
+    position:absolute;
+    width:82px;
+    height:82px;
+    color:var(--primary);
+    opacity:.68;
+    animation:doodle-float 6s ease-in-out infinite;
+}
+
+/* ===========================
+   STAGE / CARD
+=========================== */
+
+main{
+    flex:1;
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:640px;
+    margin:0 auto;
+    padding:1.5rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:1.25rem;
+}
+
+.story-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius,26px);
+    padding:clamp(1.5rem,5vw,2.75rem);
+    box-shadow:var(--card-shadow, 0 18px 40px rgba(0,0,0,.06));
+    position:relative;
+    overflow-x:hidden;
+    overflow-y:auto;
+    min-height:46vh;
+    max-height:70vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+}
+
+.story-image{
+    width:100%;
+    max-height:220px;
+    object-fit:cover;
+    border-radius:calc(var(--radius,26px) - 10px);
+    margin-bottom:1.1rem;
+}
+
+.story-image[hidden]{ display:none; }
+
+/* ===========================
+   CARD DOODLE — dekorasi lembut di dalam kartu supaya
+   ruang kosong terasa lebih hidup, berganti tiap halaman.
+=========================== */
+
+.card-doodle-layer{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    overflow:hidden;
+    border-radius:inherit;
+}
+
+.card-doodle{
+    position:absolute;
+    width:clamp(52px,13vw,88px);
+    height:clamp(52px,13vw,88px);
+    color:var(--primary-dark);
+    opacity:.18;
+}
+
+.card-doodle.slot-a{ top:4%; right:4%; }
+.card-doodle.slot-b{ bottom:4%; left:4%; transform:rotate(-18deg); }
+.card-doodle.slot-c{
+    top:40%; left:3%;
+    width:clamp(36px,8vw,58px); height:clamp(36px,8vw,58px);
+    transform:rotate(12deg);
+}
+.card-doodle.slot-d{
+    bottom:22%; right:3%;
+    width:clamp(38px,9vw,62px); height:clamp(38px,9vw,62px);
+    transform:rotate(-8deg);
+}
+
+.story-card > *:not(.card-doodle-layer){ position:relative; z-index:1; }
+
+/* ===========================
+   MUSIC PLAYER — mini bar musik per halaman
+=========================== */
+
+.music-player{
+    background:var(--cream);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:.7rem .9rem;
+    margin-bottom:1.1rem;
+}
+
+.music-player[hidden]{ display:none; }
+
+.music-title{
+    font-size:.72rem;
+    font-weight:600;
+    letter-spacing:.02em;
+    color:var(--text-secondary);
+    margin-bottom:.45rem;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.music-bar-row{
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+}
+
+.music-play-btn{
+    flex:none;
+    width:30px; height:30px;
+    border-radius:50%;
+    border:none;
+    background:var(--primary-dark);
+    color:#fff;
+    font-size:.7rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:.2s;
+}
+.music-play-btn:hover{ filter:brightness(1.08); }
+
+.music-progress{
+    position:relative;
+    flex:1;
+    height:6px;
+    border-radius:999px;
+    background-image:linear-gradient(to right, var(--border) 0 4px, transparent 4px 8px);
+    background-size:8px 6px;
+    background-repeat:repeat-x;
+    background-position:center;
+    overflow:visible;
+}
+
+.music-progress-fill{
+    position:absolute;
+    inset:0 auto 0 0;
+    width:0%;
+    height:100%;
+    border-radius:999px;
+    background:var(--primary-dark);
+    transition:width .2s linear;
+}
+
+.music-progress-thumb{
+    position:absolute;
+    top:50%;
+    left:0%;
+    width:12px; height:12px;
+    border-radius:50%;
+    background:var(--primary-dark);
+    box-shadow:0 0 0 3px var(--card);
+    transform:translate(-50%,-50%);
+    transition:left .2s linear;
+}
+
+.music-time{
+    flex:none;
+    font-size:.68rem;
+    font-variant-numeric:tabular-nums;
+    color:var(--text-secondary);
+}
+
+.story-subtitle{
+    font-size:.75rem;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--text-secondary);
+    margin-bottom:.4rem;
+}
+
+.story-title{
+    font-family:var(--font-display,'Fredoka',sans-serif);
+    font-weight:600;
+    font-size:clamp(1.6rem,4.5vw,2.3rem);
+    line-height:1.28;
+    color:var(--title-accent, var(--text));
+    margin-bottom:.85rem;
+}
+
+.story-desc{
+    font-size:1rem;
+    line-height:1.75;
+    color:var(--text-secondary);
+    white-space:pre-line;
+}
+
+/* ===========================
+   NAVIGATOR — node, bukan next/prev/counter
+=========================== */
+
+.navigator{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:.5rem;
+}
+
+.node-dot{
+    width:11px; height:11px;
+    border-radius:50%;
+    background:var(--border);
+    border:none;
+    padding:0;
+    cursor:default;
+    transition:.3s;
+}
+
+.node-dot.visited{ background:var(--primary-dark); opacity:.55; }
+.node-dot.current{ background:var(--primary-dark); width:26px; border-radius:6px; }
+
+.navigator.clickable .node-dot{ cursor:pointer; }
+.navigator.clickable .node-dot:hover{ opacity:.8; transform:translateY(-1px); }
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.app-footer{
+    text-align:center;
+    font-size:.65rem;
+    color:var(--text-secondary);
+    padding:1rem;
+    position:relative;
+    z-index:2;
+}
+
+/* ===========================
+   AUTH / WRITER LOGIN PANEL (login.html)
+=========================== */
+
+.login-shell{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:2rem 1rem;
+    position:relative;
+    z-index:2;
+}
+
+.login-card{
+    width:100%;
+    max-width:360px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius,26px);
+    padding:2rem;
+}
+
+.login-card h2{
+    font-family:var(--font-display,'Fredoka',sans-serif);
+    font-weight:600;
+    font-size:1.5rem;
+    margin-bottom:.3rem;
+    color:var(--text);
+}
+
+.login-card > p{ font-size:.85rem; color:var(--text-secondary); margin-bottom:1.4rem; }
+
+.field{ margin-bottom:1rem; display:flex; flex-direction:column; gap:.35rem; }
+.field label{ font-size:.68rem; text-transform:uppercase; letter-spacing:.05em; color:var(--text-secondary); }
+.field input{
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:.6rem .8rem;
+    font-family:inherit;
+    font-size:.9rem;
+    color:var(--text);
+}
+.field input:focus{ outline:2px solid var(--primary-dark); outline-offset:1px; }
+
+.btn{
+    font-family:inherit;
+    font-weight:700;
+    font-size:.8rem;
+    border:none;
+    border-radius:12px;
+    padding:.7rem 1.1rem;
+    cursor:pointer;
+    background:var(--primary-dark);
+    color:#fff;
+    width:100%;
+    transition:.2s;
+}
+.btn:hover{ filter:brightness(1.06); }
+.error-text{ color:#B23A48; font-size:.72rem; margin-top:.5rem; min-height:1em; }
+
+/* ===========================
+   ADMIN / WRITER MODE (di index.html, bukan file terpisah)
+=========================== */
+
+.writer-bar{
+    position:fixed;
+    left:50%;
+    bottom:1rem;
+    transform:translateX(-50%);
+    z-index:10;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:.5rem .9rem;
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    font-size:.72rem;
+    color:var(--text-secondary);
+}
+
+.writer-bar button{
+    border:none;
+    background:var(--primary);
+    color:#fff;
+    border-radius:999px;
+    padding:.35rem .7rem;
+    font-size:.7rem;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.writer-bar[hidden]{ display:none; }
+
+.stat-pill{
+    font-variant-numeric:tabular-nums;
+}
+
+@media(prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+}
+
+.nav-arrow{
+    width:40px;
+    height:40px;
+    flex:0 0 40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:none;
+    border-radius:50%;
+
+    background:var(--primary);
+    color:var(--cream);
+
+    font-size:24px;
+    font-weight:700;
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.nav-arrow:hover{
+    transform:scale(1.08);
+    background:var(--primary-dark);
+}
+
+.nav-arrow:disabled{
+    opacity:.35;
+    cursor:default;
+}
+.nav-arrow:first-child{
+    margin-right:12px;
+}
+
+.nav-arrow:last-child{
+    margin-left:12px;
+}
+.nav-arrow{
+    position: relative;
+    top: -2px;
+}

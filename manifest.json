@@ -1,0 +1,10 @@
+{
+  "name": "Buat Iza",
+  "short_name": "Buat Iza",
+  "description": "A Small Interactive Letter.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FFF4F7",
+  "theme_color": "#E98DA7",
+  "icons": []
+}

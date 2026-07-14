@@ -1,0 +1,78 @@
+{
+  "_petunjuk": "Config hanya mengatur PERILAKU, tidak boleh berisi isi cerita. Isi cerita ada di workflow.json. Tempel URL project & publish key Supabase di 'supabase' (lihat panduan.md). Untuk musik: daftarkan file di 'music_library' di bawah (kunci bebas, misal 'contoh'), lalu di workflow.json tiap halaman cukup menulis \"musik\": \"contoh\" — tidak perlu menulis path file berulang-ulang.",
+
+  "project_name": "Buat Iza",
+  "web_title": "Untuk Iza — A Small Interactive Letter",
+
+  "theme": "cute",
+  "font": { "display": "Fredoka", "body": "Quicksand" },
+
+  "allow_jump": true,
+  "show_header": true,
+  "show_node": true,
+  "show_music_button": true,
+
+  "animation_mode": "auto",
+  "animation_group": 2,
+  "background_mode": "auto",
+  "doodle_mode": "auto",
+  "transition_speed": 650,
+
+  "music_volume": 0.5,
+  "default_music": "",
+  "default_background": "paper",
+  "default_animation": "A",
+
+  "music_library": {
+    "_petunjuk": "Daftar musik yang bisa dipakai di workflow.json lewat \"musik\": \"<kunci>\". 'file' menunjuk ke data/music/, 'title' ditampilkan di bar musik.",
+    "contoh": { 
+      "file": "data/music/Kepada-Noor.mp3", 
+      "title": "Dengerinn Duluu" 
+    },
+    "Sorai": { 
+      "file": "data/music/Sorai.mp3", 
+      "title": "Sorai - Nadin Amizah" 
+    },
+    "Evaluasi": { 
+      "file": "data/music/Evaluasi.mp3", 
+      "title": "Evaluasi - Hidia" 
+    },
+     "Mudahan": { 
+      "file": "data/music/Mudahan.mp3", 
+      "title": "Mudah Mudahan - Pidi Baiq" 
+    },
+     "Tenang": { 
+      "file": "data/music/Tenang.mp3", 
+      "title": "Tenang - Fourtwnty" 
+    },
+     "Kekal": { 
+      "file": "data/music/Kekal.mp3", 
+      "title": "Kekal - Nadin Amizah" 
+    },
+     "Themilo": { 
+      "file": "data/music/Themilo.mp3", 
+      "title": "default" 
+    }
+    
+  },
+
+  "empty_state": {
+    "title": "Belum Ada Halaman",
+    "description": "Halaman ini akan terisi begitu Penulis menambahkan halaman pertama di workflow.json."
+  },
+
+  "presence": {
+    "enabled": true,
+    "label_online": "sedang membaca sekarang"
+  },
+
+  "analytics": {
+    "enabled": true
+  },
+
+  "supabase": {
+    "projectUrl": "https://qimuerhcqiilnmivampe.supabase.co",
+    "publishableKey": "sb_publishable_x3BsBYbDWf4IORm1dtoJtg_g8TNt4YK",
+    "projectId": 1
+  }
+}
